@@ -50,6 +50,7 @@ void unit_attack_target(Unit *self, Unit *target)
 
 void unit_heal_target(Unit *self, Unit *target)
 {
+    if(target->health > 0) //our change. The target must now have more than 0 health to be healed (because then target is dead and can not be resurrected)
     self->vt->heal_target(self, target);
 }
 
